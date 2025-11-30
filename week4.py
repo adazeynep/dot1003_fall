@@ -65,8 +65,31 @@ if indeks==-1 :
 else:
     print("found it at {indeks}")
 ##task51
+def task_51(): 
 
+ sentence="The quick brown fox jumps over the lazy dog"
+ print("Please enter the phhrase you want to search ")
+ print("If you want to exit enter -1 ")
+ my_flag= True
 
+ while my_flag: 
+     searchitem=input("WWhat are you looking for? ")
+     if searchitem=="-1":
+        print("Bye!")
+        my_flag=False
 
+ found_input=sentence.find(searchitem)
+ if found_input!=-1:
+     print(f"found it at {found_input}")
+ else:
+     print("not found")
 
-
+task_51()
+##task52
+def to_two_decimal(list_2):
+    new_list=[f"{num.2f}" for num in list_2 ]
+    
+    return new_list 
+my_list=[1.2345, 2.3456, 3.4567, 4.5678]
+new_list= to_two_decimal(my_list)
+print(new_list)

@@ -110,14 +110,31 @@ for char in isim:
 ##task36
 print("")
 raw_points=[1,2,1,3]
-print(f"total {sum(raw_points)} points earned.")
+total_points=0
+for point in raw_points:
+   total_points+=point
+
+print(f"total {total_points} points earned.")
 ##task37
 print("")
 raw_points=[1, -2, 1,3,-5,7,0]
 total_points=0
-if i >0:
-   total_points= i+total_points
-   print(f"total {sum(raw_points)} points earned. ")
+for num in raw_points:   
+    if num >0:
+       total_points += num
+   
+print(f"total {total_points} points earned. ")
+##task38 
+size =int(input("Please input tabla size: "))
+for _ in range(size):
+   print("|" + "_|" * size)
+
+##task39 
+height = int(input("Sprucee height: "))
+for i in range(height):
+   spaces = "" * (height- i)
+   stars = "*" * height + "*"
+      
    
 
 
