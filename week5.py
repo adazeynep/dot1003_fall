@@ -1,92 +1,181 @@
+##task53
+def spruce () :
+    height=int(input(" Please enter a number for spruce height:"))
+    box=int(input("Please enter a number for box size."))
+
+    spruce_width=2 * height - 1
+    if box < spruce_width:
+        print("Box size couldn't be smaller than the spruce.")
+        return
+    print("-" * box)
+    print("|" + " " * box +"|")
+    for i in range(1, height+ 1):
+        stars="*" * (2*i - 1)
+        padding= box - len(stars)
+
+        left= padding //2  
+        right=padding - left
+        print("|" + " "*left + stars + " " *right +"|")
+
+    print("-" * box ) 
+spruce()
+    
 ##task54
-yazi = "The quick brown fox jumps over the lazy dog "
-user_input=input("Which item do you want to search? ")
-print(f"item {user_input} appeared {yazi.count(user_input)} times.")
+text="The quick brown fox jumps over thee lazy dog "
+search_item=input("Whic item do you want to search? ")
+count=text.count(search_item)
+print(f"Item {search_item} appeared {count} times. ")
 
 ##task55
-def aranacak_öge():
-    aranacak=input("Enter input to search: ")
-    item=input("Which item do you want to searvh? ")
-
-    count=aranacak.count(item)
-    print(f"Item {item} appeared {count} times. ")
-aranacak_öge()
+def game_func():
+ game=input("Enter the input to search: ")
+ search_item=input("Which item do you wnt to search? ")
+ result=game.count(search_item)
+ print(f"Item {search_item} appeared {result} times.  ")
+game_func()
 
 ##task56
-def unluleri_sil(text):
+def remove_vowels(menu_button):
+    menu_button=""
     vowels="aeiouAEIOU"
-    yeni_text= ""
-     
-    for char in text:
+    
+    for char in menu_button:
         if char not in vowels:
-            yeni_text +=char
-
-    return yeni_text
+            menu_button+=char
+    return menu_button
 user_text=input("Enter your sentence: ")
-result= unluleri_sil(user_text)
+result=remove_vowels(user_text)
 print("Without vowels:" ,result)
 
 ##task57
-def anarya(input_list):
-    input_list.reverse()
-    return input_list
-game_list=["Doom", "Max Payne", "FTL"]
+def anarya(game_list):
+   game_list.reverse()
+   return game_list
+game_list=["Doom", "Max Payne","FTL"]
 print(game_list)
-reversed_list= anarya(game_list)
+reversed_list=anarya(game_list)
 print(reversed_list)
+
+##task58
+game_list=[]
+my_flag=True
+def anarya(game_list):
+    return game_list[::-1]
+
+while my_flag:
+    user_input=input("Enter an input: ")
+    if user_input=="exit":
+        my_flag=False
+    else:
+        game_list.append(user_input)
 print(game_list)
+print(anarya(game_list))
+
 
 ##task59
 def longest_name(game_list):
     return max(game_list, key=len)
 game_list=["Doom", "Max Payne", "FTL"]
 print(game_list)
-print(longest_name(game_list))
+print(longest_name(game_list))                                                                                                                                 
+
+##task60
+my_matrix=[[1,2,3], [4,5,6], [7,8,9]]
+element=int(input("Item to search: "))
+
+def finder(my_matrix,element):
+
+ for row in my_matrix:
+   print(row)
+print(finder(my_matrix,element))
+if element in my_matrix:
+  print(f"find at {row}, {column}")
+  
+finder(my_matrix,element)
+
+##task61
+def sum_of_row(my_matrix, row_no):
+    
+    selected_row=my_matrix[row_no]
+    total=sum(selected_row)
+    return total
+
+my_matrix=[[1,2,3], [4,5,6],[7,8,9]]
+element=int(input("row no: "))
+for row in my_matrix:
+    print(row)
+result=sum_of_row(my_matrix,element)
+print(f"Sum: {result}")
+##task62
+
+def sum_of_column(my_matrix,column_no):
+
+    selected_column=my_matrix[column_no]
+    total=sum(selected_column)
+    return total
+
+my_matrix=[[1,2,3], [4,5,6],[7,8,9]]
+element=int(input("column no: "))
+
+for column in my_matrix:
+    print(column)
+result=sum_of_column(my_matrix,element)
+print(f"sum: {result}")
 
 ##task63
-def tripler(input_list):
-    new_list=[num*3 for num in input_list]
-    return  new_list
 my_lucky_numbers=[4,8,15,16,23,42]
+tripled_list=[]
+def tripler():
+    for i in my_lucky_numbers:
+        numbers= i * 3
+        tripled_list.append(numbers)
 
-tripled_numbers=tripler(my_lucky_numbers)
-print(tripled_numbers)
+print(f"my lucky numbers {my_lucky_numbers}")
+tripler()
+print(f"tripled numbers {tripled_list}")
 
 ##task64
-inventory={"item1":3,"item2":1,"item3":5}
-for k,v in inventory.items():
-    print(k,v)
+my_dictionary={
+    "item1": 3,
+    "item2": 1,
+    "item3":5
+}
+for item, quantity in my_dictionary.items():
+    print(f"{item}: {quantity}")
 
 ##task65
 def add_item(item,quantity):
-    if item in inventory:
-        inventory[item] +=quantity
+    if item in my_dictionary:
+        my_dictionary[item] +=quantity
     else:
-        inventory[item] = quantity
-inventory={"item1":3,"item2":1,"item3":5}
+        my_dictionary[item] = quantity
+my_dictionary={"item1":3,"item2":1,"item3":5}
 add_item("item1",5)
 add_item("item4",1)
 
-for key,value in inventory.items():
+for key,value in my_dictionary.items():
     print(f"{key}:{value}")
 
 ##task66
-inventory = {"item1": 3, "item2": 1, "item3": 5}
+my_dictonary={
+    "item1":3,
+    "item2":1,
+    "item3":5
+}
 
-def remove_item(item, quantity):
-    if quantity > 0:
-        if item in inventory:
-            if inventory[item] < quantity:
-                inventory[item] = 0
-            else:
-                inventory[item] -= quantity
+def add_item(item,quantity):
+    if item in my_dictionary:
+        my_dictionary[item]+=quantity
+    else:
+        my_dictionary[item]=quantity
+for key in my_dictionary:
+    print(f"{key}: {my_dictionary[key]}")
 
-def add_item(item, quantity):
-    if quantity > 0:
-        if item in inventory:
-            inventory[item] += quantity
-        else:
-            inventory[item] = quantity
+def remove_item(item,quantity):
+        if item in my_dictionary:
+           my_dictionary[item] -= quantity
+        if my_dictionary[item] < 0:
+           my_dictionary[item] = 0
 
 add_item("item1", 5)
 add_item("item4", 1)
@@ -94,5 +183,5 @@ add_item("item4", 1)
 remove_item("item4", 6)
 remove_item("item1", 2)
 
-for key, value in inventory.items():
-    print(f"{key}:{value}")
+for key in my_dictionary:
+    print(f"{key}: {my_dictionary[key]}")
